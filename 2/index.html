@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>SunMedia Test 2</title>
+  </head>
+  <body>
+    <div class="container pt-5">
+        <h1>Test 2</h1>
+        <p>El fragmento de código de nuestro fichero `test.js` nos devuelve un output no 
+deseado. Queremos imprimir un valor incremental a cada segundo pero lo que 
+nos devuelve el código es el mismo valor en cada iteración. </p>
+        <p>1. Sin necesidad de ejecutar el código, ¿sabrías decirnos qué valor imprimiría
+ por consola el script?</p>
+        <pre class="d-flex mb-0 text-success">
+> 5
+> 5
+> 5
+> 5
+> 5
+        </pre>
+        <p>¿Cuál es el motivo?</p>
+        <p class="text-success">
+            La variable "i" es global a la ejecución. El for se ejecuta y define 5 timeouts que imprimen "i", pero cuando se ejecuta la función del timeout, ya el valor de "i" es igual a 5.
+        </p>
+        <p>2. Sabiendo que el output que buscamos es el que encuentras bajo estas líneas… 
+¿Cómo solucionarías el fragmento de código para que el output sea el deseado?</p>
+        <p class="text-success">Declaramos una variable local al for, le asignamos el valor de i, y esa variable es la que le pasamos a la función del timeout.</p>
+        <pre class="d-flex mb-0 text-success">
+            <code>
+for (var i = 0; i < 5; i++) {
+    let localIndex = i;
+    setTimeout(function () {
+        console.log(localIndex);
+    }, 1000);
+}
+            </code>
+        </pre>
+        <pre class="d-flex mb-0 text-success">
+ 
+        </pre>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="test2.js"></script>
+  </body>
+</html>
