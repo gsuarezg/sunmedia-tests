@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>SunMedia Tests</title>
+  </head>
+  <body>
+    <div class="container pt-5">
+        <h1>Test 1</h1>
+        <p>Para responder a este test encontrarás un archivo llamado `test.js` en esta 
+        misma carpeta donde hay un pequeño fragmento de código que deberás analizar 
+        y responder a las siguientes cuestiones.</p>
+        <p>
+            <ul>
+                <li>
+                    1. En el fragmento de código de nuestro archivo (`test.js`) podemos encontrar hasta 3 variables. ¿Podrías decirnos cuál sería el valor de todas ellas al finalizar la ejecución del script?
+                    <pre class="d-flex mb-0 text-success">
+                        <code>
+rgb = {
+    red: "#FF0000",
+    green: "#00FF00",
+    blue: "#0000FF",
+    white: "#FFFFFF",
+    black: "#000000",
+};
+wb = {
+    white: "#FFFFFF",
+    black: "#000000",
+};
+colors = {
+    red: "#FF0000",
+    green: "#00FF00",
+    blue: "#0000FF",
+    white: "#FFFFFF",
+    black: "#000000",
+};
+                        </code>
+                    </pre>
+                </li>
+                <li>
+                    2. Modifica el código para que las variables `rgb` y `wb` mantengan sus valores iniciales y `colors` tenga los valores de ambas al finalizar la ejecución del script.
+                    <div class="row mb-3">
+                        <div class="col-auto">
+                            <pre class="d-flex mb-0 text-success">
+                                <code>
+const rgb = {
+    red: "#FF0000",
+    green: "#00FF00",
+    blue: "#0000FF",
+};
+
+const wb = {
+    white: "#FFFFFF",
+    black: "#000000",
+};
+
+const colors = Object.assign({}, rgb, wb);
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="col-auto justify-content-center align-self-center">
+                            <button type="button" id="run-test2" class="btn btn-success">Salida >></button>
+                        </div>
+                        <div class="col-6">
+                            <form id="form-test-1.2" style="display:none;">
+                                <div class="form-group">
+                                    <label for="rgb">rgb</label>
+                                    <input class="form-control" id="rgb" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="wb">wb</label>
+                                    <input class="form-control" id="wb" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="colors">colors</label>
+                                    <input class="form-control" id="colors" type="text">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </li>
+                <li>
+                    3. Además, tenemos un bug localizado en dispositivos con Internet Explorer… El código de nuestro script no funciona y necesitamos que se ejecute también en este navegador.<br>
+                    ¿Sabrías identificar cuál es el problema? <span class="text-success"> ->> IE no soporta Object.assign().</span><br>
+                    ¿Qué solución nos propones?  <span class="text-success"> ->> Definir el método Object.assign() para IE, así el código será el mismo para todos los navegadores. Para ello, he creado un fichero 'ie-compat.js':</span><br>
+                    <pre class="d-flex mb-0 text-success">
+                                <code>
+if (typeof Object.assign !== 'function'){
+  Object.assign = function (target) {
+    "use strict";
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (source.hasOwnProperty(key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+}
+                                </code>
+                            </pre>
+                </li>
+            </ul>
+        </p>
+        <p>**PS**: No es estrictamente necesario tener Internet Explorer para poder identificar y/o resolver el bug.</p>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="ie-compat.js"></script>
+    <script src="test2.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
