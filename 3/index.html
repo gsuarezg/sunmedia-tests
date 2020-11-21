@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>SunMedia Test 3</title>
+  </head>
+  <body>
+    <div class="container pt-5">
+      <h1>Test 3</h1>
+      <p>En este caso, tenemos un código usando el objeto `Promise` (Promesa). Las *promises* 
+(promesas) nos permiten manejar situaciones asíncronas en nuestras ejecuciones, 
+pero tenemos un pequeño problema… No es una solución totalmente cross-browser. 
+Sabemos que no funciona en Internet Explorer así que nos gustaría saber cómo 
+modificarías nuestro código (`test.js`) para que funcione correctamente.</p>
+      <p class="text-success">
+        Promise no es soportado por IE. En mi opinión, la mejor forma de solucionarlo es usar una librería externa que añada esta capacidad para IE. En mi caso he usado la librería Polyfill, basta con añadirla a los scripts que se cargan y se soluciona el problema.<br>
+        Además, las funciones fat arrow, tampoco son soportadas en IE, por lo que las he cambiado por el "fuction" clásico.
+      </p>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="test.js"></script>
+  </body>
+</html>
