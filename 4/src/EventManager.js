@@ -6,7 +6,9 @@ export default class EventManager {
   run() {
     console.log("RUNNING");
     this.events.forEach((event) =>
-      setTimeout(() => this.manage(event), event.second * 1000)
+      new Promise((resolve) =>
+        setTimeout(() => resolve(1), event.second * 1000)
+      ).then((result) => this.manage(event))
     );
   }
 
